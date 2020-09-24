@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     <style>
+       table{
+        font-family: 'Poppins', sans-serif;
+       }
+       
+     </style>
+
+    <title>Covid-19 App</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+ 
+  </head>
+  <body>
+        <div class="table-responsive  container-fluid ">
+        <table class="table table-bordered table-striped table-hover text-center id="tb_box">
+            <tr>
+                <th>Tested positive</th>
+                <th>tested negative</th>
+                <th>Tested total</th>
+                <th>In isolation</th>
+                <th>Quarantined</th>
+                <th>Tested RDT</th>
+                <th>Pending Result</th>
+                <th>Recovered</th>
+                <th>Deaths</th>
+            </tr>
+            <tr class="data">
+
+            </tr>
+        </table>
+        </div>
+
+  <script>
+      window.addEventListener("load",()=>{
+        pagal();
+        const raja = '';
+        function pagal(){
+        const api_link = "https://nepalcorona.info/api/v1/data/nepal";
+          $.get(api_link, function(raj){
+            raj = `
+            <td>${raj.tested_positive}</td>
+            <td>${raj.tested_negative}</td>
+            <td>${raj.tested_total}</td>
+            <td>${raj.in_isolation}</td>
+            <td>${raj.quarantined}</td>
+            <td>${raj.tested_rdt}</td>
+            <td>${raj.pending_result}</td>
+            <td>${raj.recovered}</td>
+            <td>${raj.deaths}</td>
+  
+            
+            `
+            $(".data").html(raj);
+          })
+        }
+      })
+  </script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+  
+</html>
